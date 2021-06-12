@@ -1,0 +1,61 @@
+.footerDiv {
+    margin-top: 3rem;
+    padding: 4rem;
+    background-color:#2525251c;
+    color : #ffffff;
+    width: 100%;
+    height: 15vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.logoDiv {
+   
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 17px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* 
+.logoDiv h3 {
+    font-size: 1.5rem;
+}
+.logoDiv p {
+    line-height: 8px;
+} */
+.divine {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.infoDiv {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    gap: 15px;
+    color: #ffffff;
+    
+    
+
+}
+
+.infoDiv a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: #ffffff;
+}
+
+.infoDiv a:hover {
+    text-decoration: underline;
+}
+
+table  {
+    text-align: left;
+    border-spacing: 0 15px;
+}
+

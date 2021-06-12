@@ -1,0 +1,54 @@
+.NavBaritems {
+    background: linear-gradient(90deg , rgb(2, 2, 3) 0% , rgb(42, 41, 49));
+    height: 80px;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+.nav-bar-logo {
+    cursor: pointer;
+    margin-left: 4rem;
+    font-size: 30px;
+    font-weight: 700;
+   
+}
+
+.nav-menu {
+ display: grid;
+ grid-template-columns: repeat(4, auto);   
+ justify-content: end;
+ width: 80vw;
+ margin-right: 2rem;
+ list-style: none;
+ gap: 10px;
+}
+
+.nav-links {
+    color: white;
+    padding: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.nav-links:hover {
+    background-color:#77767648;
+    border-radius: 4px;
+    transition: all 0.2 ease-out;
+    text-decoration: none;
+    outline: none;
+    color: white;
+}
+
+
+.dropdown {
+    background-color: blue;
+    position: absolute;
+    left: 0;
+    padding-left: 0;
+    min-width: 180px;
+}

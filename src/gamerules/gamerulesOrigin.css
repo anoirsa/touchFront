@@ -1,0 +1,82 @@
+.whoSaid {
+    font-size:1rem;
+        line-height:3rem;
+        font-weight:300}
+
+
+.showIt i {
+    justify-self: flex-start;
+    align-self: center;
+    margin-left: 40px;
+    font-size: 5rem
+}   
+
+.showIt h3 {
+    justify-self: self-end;
+    align-self: center;
+    margin-right: 2rem;
+    font-size: 3rem;
+}
+
+.showIt {
+    border-left: 0.5rem solid black;
+}
+
+.toShowIt p {
+    justify-self: self-start;
+    /*align-self: flex-start; */
+    align-self: center;
+    position: relative;
+    top: 0%;
+    font-size: 1.6rem;
+    font-weight: 400;
+    height: 20px;
+    margin-bottom: 30%;
+}
+.toShowIt {
+    padding-left: 50px;
+    text-align: center;
+    
+   
+}
+
+/**/
+
+.showItRight i {
+    justify-self: flex-start;
+    align-self: center;
+    margin-right: 40px;
+    font-size: 5rem
+}   
+
+.showItRight h3 {
+    justify-self: self-end;
+    align-self: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 3rem;
+}
+
+.showItRight {
+    border-right: 0.5rem solid black;
+    overflow: hidden;
+}
+
+.toShowItRight p {
+    justify-self: self-start;
+    /*align-self: flex-start; */
+    align-self: center;
+    position: relative;
+    top: 0%;
+    font-size: 1.6rem;
+    font-weight: 400;
+    height: 20px;
+    margin-left: 50px;
+    margin-bottom: 30%;
+}
+.toShowItRight {
+    padding-right: 0;
+    text-align: center;
+    overflow: hidden;
+   
+}

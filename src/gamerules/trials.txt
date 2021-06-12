@@ -1,0 +1,40 @@
+ const QuestionSub = styled.div`
+       display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        height: 25%;
+        width: 100%;
+
+        h2 {
+            font-size: 4rem;
+        }
+         `;
+
+
+ <li className={item.clicked ? 'fas fa-times' : 'fas fa-bars'}  key = {index}>
+                    <Link path={item.url}> 
+                    <a className= {`${item.cName}`}
+                    // href={item.url}
+                     onClick={() =>this.handleSomeClick(index)}> {item.title}</a> </Link>
+                   
+                </li> 
+
+
+                <motion.div
+                initial = {{opacity : 0}}
+                animate = {{opacity:1}}
+                transition = {{duration : 2 , delay:0}}
+            ><h3>E D U C A T I O N</h3></motion.div>
+            <motion.div
+                initial = {{opacity : 0}}
+                animate = {{opacity:1}}
+                transition = {{duration : 2 , delay:2}}
+            > <h3>S O P H I S T I C A T I O N</h3></motion.div> 
+            <motion.div
+                initial = {{opacity : 0}}
+                animate = {{opacity:1}}
+                transition = {{duration : 2 , delay:4}}
+            > <h3 className="unit" >U N I F I C A T I O N</h3></motion.div>  
