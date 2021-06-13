@@ -23,17 +23,48 @@ constructor(props){
     this.renderQuestions = this.renderQuestions.bind(this);
     
 }
+
+    forwardStep() {
+    this.setState(prevState => {
+        return {step : prevState.step + 1}
+    })
+    console.log(this.state.step)
+   }
     async renderQuestions() {
         const {level} = this.state
         if (level != null) {
             try {
+                const questionsOfTheGame = [
+                    {questionText : "Who is best player",
+                    option1 : "Messi",
+                    option2: "Ronaldo",
+                    option3 : "Rahim",
+                    option4 : "Gori"},
+                
+                    {questionText : "Who is world cup winner 2010",
+                    option1 : "Spain",
+                    option2: "Italy",
+                    option3 : "Germany",
+                    option4 : "Netherlands"},
+                    {questionText : "How many times did Finalnd qualify to EURO ?",
+                    option1 : "2 times",
+                    option2: "One Time",
+                    option3 : "4 times",
+                    option4 : "6 times"}
+
+                ];
+                // ${getTextLevel(level)}
                 const res = await fetch(`http://localhost:8081/management/api/v1/data/${getTextLevel(level)}`);
                 const json = await res.json();
-                console.log(json);
+                
+               /** json.map((item , index) => {
+                    return(
+                        questionsOfTheGame.push(item)
+                    )
+                }) **/
                 this.setState({
-                    questions : json
+                    questions : questionsOfTheGame
                 })
-
                 this.forwardStep();
                
               } catch (err) {
@@ -44,11 +75,7 @@ constructor(props){
         
     }
 
-   forwardStep(){
-    this.setState({
-        step : this.state + 1
-    })
-   }
+  
     backStep() {
         this.setState({
             step : this.state -1
@@ -72,19 +99,21 @@ render() {
                     isLoggedIn = {this.props.isLoggedIn}
                     handleLogin = {this.props.handleLogin}
                     logout = {this.props.logout}
-                    //isLoggedIn = {this.props.location.state.isLoggedIn}
-                   /** handleLogin = {this.props.location.state.handleLogin}   **/ />
-            break;
+                   />
+
+            
         case 2 :
-            return <DuringGame  />
-            break;
+            return <DuringGame 
+                    questions = {this.state.questions}
+            />
+            
         case 3 :
             return <Result />   
-            break;
+            
         
         case 4 : 
             return <GameWithdraw  />
-            break;
+            
     }
  
 

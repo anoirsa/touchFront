@@ -1,0 +1,118 @@
+.newslogan {
+    font-size: 400px;
+}
+
+.duringGame {
+    height: 100vw;
+    padding: 20px;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.questionBox {
+    width: 100%;
+    height: 50vw;
+   
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    overflow: hidden;
+}
+
+
+.questionTextBox {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    width: 100%;
+    height:15vw;  
+
+    
+}
+.questionTextBox h1{
+    font-weight: 300;
+}
+.questionTextBox i {
+    font-size: 100px;
+}
+
+.questionOptions {
+    margin-top: 15px;
+    padding: 5px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    width: 100%;
+    height: 25vw;
+}
+
+.questionOptions .option {
+    border-radius: 2%;
+    border : 2px solid #ffffff;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.option h3 {
+    font-weight: 300;
+
+}
+
+.goIcon {
+    width: 100%;
+    text-align: center;
+    height: 10vw;
+    margin-top: 20px;
+
+ }
+ 
+ .goIcon i {
+     font-size: 80px;
+ }
+
+ .lastDiv {
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     height: 5vw;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+ }
+
+ .go {
+     width: 20%;
+     height: 100%;
+     display:grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 5px;
+
+}
+
+.help {
+    width: 40%;
+    height: 100%;
+  
+    display:grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     gap : 5px;
+}
+.go div, .help div  {
+    border-radius: 2%;
+    border: 2px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.go div:hover, .help div:hover, .questionOptions .option:hover, .goIcon i:hover {
+    opacity: 0.5;
+}
+
+

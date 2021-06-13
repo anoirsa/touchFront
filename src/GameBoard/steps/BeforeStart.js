@@ -7,8 +7,7 @@ import '../gameboard.css';
 
 function BeforeStart(props) {
     const styledChosenDiv = {backgroundColor :"white", color:"black"}
-
-     
+    
     
     return (
         <div className ="gameBoardPage beforeStart">

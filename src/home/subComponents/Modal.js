@@ -14,6 +14,7 @@ import WelcomeAnime from './subImages/welcomeAnime.png'
 import { sendLoginRequest } from './client';
 import Cookies from 'universal-cookie';
 import { makeStyles } from '@material-ui/core/styles';
+import RegistrationModal from './RegistrationModal';
 
 
 
@@ -57,6 +58,12 @@ const ModalWrapper = styled.div`
         padding: 10px;
         align-items: center;
         justify-content: space-around;
+    }
+    a {
+        text-decoration: underline;
+        color : blue;
+        margin-top: 4px;
+        cursor: pointer;
     }
 `;
 
@@ -112,11 +119,11 @@ function Modal({showModal, setShowModal}) {
         cookies.remove("login")
     }
 
-    /** 
+    
     const [showRegistrationModal , setRegistrationModal  ] = useState(false);
     const openRegistrationModal = () => {
         setRegistrationModal(prev => !prev)
-    } **/
+    } 
     
    return <>  
     {showModal ? (<BackGround>
@@ -159,7 +166,11 @@ function Modal({showModal, setShowModal}) {
              className = "btn btn-primary"
              >LOG IN</button>
              <hr />
-            <a>Here we are</a>
+            <a
+                onClick = {() => openRegistrationModal()}
+
+            >Register if you don't have an account</a>
+            
              
              {cookies.get("login") =="error" ?   <Alert variant="filled" severity="error" style={{width:"300px", height:"70px"}}>
              There is a login error!
@@ -168,6 +179,10 @@ function Modal({showModal, setShowModal}) {
              
              </form>
         </ModalWrapper>
+        <RegistrationModal 
+                showRegistrationModal = {showRegistrationModal}
+                setRegistrationModal = {setRegistrationModal}
+            />
     </BackGround>) : null}
     </>
 }

@@ -26,7 +26,7 @@ import Modal from './subComponents/Modal'
 
 
 const Main = (props) => {
-    const [showModal , setShowModal ] = useState(true);
+    const [showModal , setShowModal ] = useState(false);
     const cookies = new Cookies();
     if (cookies.get("touchandgo") == "loginpage") {
         setShowModal(true)
