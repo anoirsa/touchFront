@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
       },
     },
-  }));
+  })); 
   
 
 function Modal({showModal, setShowModal}) {

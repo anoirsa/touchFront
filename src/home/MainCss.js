@@ -163,14 +163,14 @@ const Text = styled(motion.div)`
     `;
 
 
-const GlobalStyle = createGlobalStyle`
+/** const GlobalStyle = createGlobalStyle`
   * {
    box-sizing : border-box;
    margin : 0;
    padding: 0;
    font-family: 'Arial', sans-serif;
   }
-`;
+`; **/
 
 export {Image , Image1, Section ,Container ,FirstColumn ,SecondColumn, ThirdColumn,Button,
-  ContainerSecond, Reference ,SectionAbove, SubSection, Text, ImageSherlock, GlobalStyle }
+  ContainerSecond, Reference ,SectionAbove, SubSection, Text, ImageSherlock }

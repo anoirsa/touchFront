@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="logoDiv">
                 <i className="fas fa-desktop"
                   style={{fontSize:"10rem"}} ></i> 
-                  <div className="divine">
+                <div className="divine">
                   <h3>Touch AND GO</h3>
                       <p>タッチアンドゴー</p>
                       <p>kosketa ja mene</p>

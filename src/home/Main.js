@@ -15,7 +15,7 @@ import {Image , Image1,
      Section ,Container ,FirstColumn 
      ,SecondColumn, ThirdColumn,
      Button , ContainerSecond, Reference ,SectionAbove, SubSection,
-     ImageSherlock , GlobalStyle} from './MainCss'
+     ImageSherlock } from './MainCss'
 // import variables     
 import { texts } from './texts';
 // import components
@@ -126,7 +126,7 @@ const Main = (props) => {
                 <Modal  setShowModal = {setShowModal}
                        showModal={showModal}
                     />
-                    <GlobalStyle />
+                {/** <GlobalStyle />  **/}  
             </SecondColumn>
             <ThirdColumn >
             <Image1

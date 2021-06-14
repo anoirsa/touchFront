@@ -39,18 +39,22 @@ constructor(props){
                     option1 : "Messi",
                     option2: "Ronaldo",
                     option3 : "Rahim",
-                    option4 : "Gori"},
+                    option4 : "Gori",
+                    correctAnswer : "Messi"},
                 
                     {questionText : "Who is world cup winner 2010",
                     option1 : "Spain",
                     option2: "Italy",
                     option3 : "Germany",
-                    option4 : "Netherlands"},
+                    option4 : "Netherlands",
+                    correctAnswer : "Spain"},
+
                     {questionText : "How many times did Finalnd qualify to EURO ?",
                     option1 : "2 times",
-                    option2: "One Time",
+                    option2: "One time",
                     option3 : "4 times",
-                    option4 : "6 times"}
+                    option4 : "6 times",
+                    correctAnswer : "One time"}
 
                 ];
                 // ${getTextLevel(level)}
@@ -65,6 +69,7 @@ constructor(props){
                 this.setState({
                     questions : questionsOfTheGame
                 })
+                console.log(this.state.questions)
                 this.forwardStep();
                
               } catch (err) {

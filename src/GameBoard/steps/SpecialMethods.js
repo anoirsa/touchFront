@@ -36,5 +36,19 @@ const getTextLevel = (number) => {
     return array;
   }
 
+ const insertOptions = (textOptions) => {
+     var options = []
+     options.push(textOptions.option1)
+     options.push(textOptions.option2)
+     options.push(textOptions.option3)
+     options.push(textOptions.option4);
+     return options;
 
-export {getTextLevel , shuffle}
+ } 
+/** 
+const defineClassName = (option , chosenOption, rightAnswer) {
+    var 
+} 
+**/
+
+export {getTextLevel , shuffle , insertOptions}

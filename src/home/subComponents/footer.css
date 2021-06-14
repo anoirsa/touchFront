@@ -22,18 +22,14 @@
     font-size: 1rem;
 }
 
-/* 
+
 .logoDiv h3 {
     font-size: 1.5rem;
 }
 .logoDiv p {
     line-height: 8px;
-} */
-.divine {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
+} 
+
 
 .infoDiv {
     display: flex;
