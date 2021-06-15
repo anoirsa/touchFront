@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import SamUncle from './images/asking.png';
 import './during.css'
-import {insertOptions, shuffle} from './SpecialMethods'
+import {getRealScore, insertOptions, points, shuffle} from './SpecialMethods'
+import SelectInput from '@material-ui/core/Select/SelectInput';
  
 
 class DuringGame extends React.Component {
@@ -15,6 +16,13 @@ class DuringGame extends React.Component {
             questions : this.props.questions,
             currentChosenOption : "",
             answerKnwon : false,
+            answerIsWrong : false,
+            optionsUsed : {
+                removeTwo : false,
+                askFriend : false,
+                statistics : false,
+            }
+
         
         }
         this.chooseOption = this.chooseOption.bind(this)
@@ -31,13 +39,60 @@ chooseOption(option) {
            else return {isAnswerCorrect : false}
        }) **/
 }
-goAhead(correctAnswer) {
-    setTimeout(() => {
-
-        this.setState((prevState) => {
-           return {answerKnwon : true}
+// Method to be added
+removeTwo(correctAnswer , options) {
+    var optionsRemove = 0;
+    var arrayOfOpRemoved = []
+    while (optionsRemove < 2 ){
+        var suggestedIndex = Math.floor(Math.random() * 3) + 1;
+        var suggested = options[suggestedIndex];
+        if (!arrayOfOpRemoved.includes(suggested) && correctAnswer != suggested ){
+            arrayOfOpRemoved.push(suggested);
+            optionsRemove++;
+        }
+        this.setState({
+            optionsUsed : {
+                ...this.state.optionsUsed ,
+                removeTwo : true
+            }
         })
-    },2000)
+    }
+    // Test
+    console.log("The removed options are " + arrayOfOpRemoved)
+    return arrayOfOpRemoved;
+}
+
+// possibility to make it import : ++
+sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+  }
+  
+goAhead(correctAnswer) {
+
+    if (this.state.answerIsWrong) {
+        this.props.forwardStep();
+    }
+    else  {
+      if  (correctAnswer != this.state.currentChosenOption) {
+        setTimeout(() => {
+            this.setState((prevState) => {
+                   return {answerKnwon : true,
+                          answerIsWrong : true}
+                })
+            },2000)
+    }
+    else if (correctAnswer == this.state.currentChosenOption) {
+        this.sleep(2000)
+        this.props.upScore()
+        this.setState((prevState) => {
+            return {counterQ : prevState.counterQ +1}
+        })
+    }   
+}
 }
 
 render(){
@@ -46,7 +101,8 @@ render(){
     var correctAnswer = currentQuestion.correctAnswer;
     var questionText = currentQuestion.questionText
     var optionsAll = insertOptions(currentQuestion);
-
+    // Test 
+    console.log("Remove two " + this.state.optionsUsed.removeTwo)
     return (
         <div className="duringGame">
             
@@ -69,13 +125,26 @@ render(){
             goAhead = {this.goAhead}
 
         />
+        <div className="scoreLine">
+            {points().map((item, index) => {
+                return (
+                    <div className={item == this.props.currentScore ? 
+                    "sectionLine currentLine" : "sectionLine"} key={index}> 
+                            <p>{getRealScore(item)} $</p>
+                    </div>
+                )
+            })}
+        </div>
         <div className="lastDiv"> 
             <div className="go">
                 <div>STOP</div>
                 <div>CURRENT CODE</div>
             </div>
             <div className="help">
-                <div>REMOVE 2</div>
+                <div
+                    onClick = {() => this.removeTwo(correctAnswer , optionsAll)}
+                    className = {this.state.optionsUsed.removeTwo ? "removeTwoAlreadyUsed" : null}
+                >REMOVE 2</div>
                 <div>STATISTICS</div>
                 <div>FRIEND</div>
             </div>
@@ -93,10 +162,10 @@ class QuestionBox extends React.Component{
             newPr : null
         }
     }
- 
    
-    render() {
-   // const randmisedOption = shuffle(this.props.options);
+    
+   render() {
+   console.log("answe is knwon ?" + this.props.answerKnwon)
     return (
         <div className="questionBox">
             <div className="questionTextBox">
@@ -109,7 +178,7 @@ class QuestionBox extends React.Component{
             
              {this.props.options.map((item, index) => {
                  return(
-                     this.props.counterQ % 2 == 0 ?   <div className={this.props.answerKnwon && item == this.props.correctAnswer 
+                     this.props.counterQ % 2 == 0 ?   <div className={this.props.answerKnwon == true && (item == this.props.correctAnswer) 
                         ? 'option rightChosen' :item == this.props.currentChosenOption ? 'option optionChosen' : 'option'} key= {index}
                      onClick = {() => this.props.chooseOption(item)}>
                      <motion.h3
@@ -118,7 +187,7 @@ class QuestionBox extends React.Component{
                          transition={{duration:4}}
                          
                      >{item}</motion.h3>
-                           </div> :  <div className={this.props.answerKnwon && item == this.props.correctAnswer
+                           </div> :  <div className={this.props.answerKnwon == true && (this.props.answerKnwon == this.props.correctAnswer)
                             ? 'option rightChosen' :item == this.props.currentChosenOption ? 'option optionChosen' : 'option'}
                      onClick = {() => this.props.chooseOption(item)}>
                      <motion.h3
