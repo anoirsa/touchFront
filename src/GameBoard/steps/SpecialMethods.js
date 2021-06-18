@@ -90,13 +90,60 @@ const points = () => {
 }
 
 
+
 const pointStable = (subScore,currentScore) => {
     var submittedScore;
     var alternativePoint = currentScore + 1; 
     // Test 
     console.log("True or false " + equals(currentScore,2))
-    if (equals(alternativePoint,2) || equals(alternativePoint,10) || equals(alternativePoint,16)) submittedScore = alternativePoint;
+    if (equals(alternativePoint,5) || equals(alternativePoint,10) || equals(alternativePoint,16)) submittedScore = alternativePoint;
     else submittedScore = subScore;
     return submittedScore;
 }
-export {getTextLevel , shuffle , insertOptions, getRealScore, points, equals, pointStable}
+
+const isStable = (score) =>{
+    if ((equals(score,5)) || equals(score,10) || equals(score,16)) return true;
+    else return false
+} 
+
+
+function removeA(arr) {
+    var what, a = arguments, L = a.length, ax;
+    while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr;
+}
+
+
+const getIconCategory = (category) =>{
+    var returnedValue;
+    console.log("category is" + category)
+    switch(category) {
+        case "SPORTS" :
+            returnedValue = "fas fa-baseball-ball";
+            break;
+        case "ECONOMY" :
+            returnedValue = "fas fa-money-check-alt";  
+            break;
+        case "HISTORY" :
+            returnedValue ="fas fa-history";
+            break;
+        case "POLITICS":
+            returnedValue = "fas fa-landmark";
+            break;
+        case "ARTS" :
+            returnedValue = "fas fa-palette";
+            break;
+        default :
+            returnedValue = "fas fa-address-book";
+            break;                  
+    }
+    
+    return returnedValue;
+} 
+
+export {getTextLevel , shuffle , insertOptions, getRealScore, points, equals, pointStable, removeA , isStable, getIconCategory}

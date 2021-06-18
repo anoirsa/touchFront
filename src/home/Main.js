@@ -194,9 +194,7 @@ const Main = (props) => {
             </ContainerSecond>
             {props.isLoggedIn ? <Redirect to= "/gameboard" 
             /> : null} 
-
-               
-        </Section>
+  </Section>
     )
 }
 

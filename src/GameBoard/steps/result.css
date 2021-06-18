@@ -1,5 +1,15 @@
 .resultClass {
     color: #ffffff;
     height: 60vw;
+    text-align: center;
+    
 
+}
+
+.resultClass h1 {
+    font-weight: 300;
+}
+
+.resultClass i {
+    font-size: 300px;
 }

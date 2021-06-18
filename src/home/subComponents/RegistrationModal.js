@@ -75,9 +75,7 @@ function RegistrationModal({showRegistrationModal, setRegistrationModal}) {
     const [username , setUsername] = useState("");
     const [password , setPassword] = useState("");
     const [email , setEmail] = useState("");
-   // const alert = useAlert();
-    console.log(username);
-    console.log(password);
+    // Test
     const register = async e => {
         e.preventDefault();
         const body = {username , password , email} 
@@ -153,6 +151,7 @@ function RegistrationModal({showRegistrationModal, setRegistrationModal}) {
  
   
 export default RegistrationModal
+export {BackGround}
 
   /**
    */

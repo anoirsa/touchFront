@@ -17,7 +17,8 @@ constructor(props){
         level : null,
         questions : [],
         currentScore : 0,
-        submittedScore : 0
+        submittedScore : 0,
+        hasStopped : false
         
     }
     this.forwardStep = this.forwardStep.bind(this);
@@ -25,8 +26,21 @@ constructor(props){
     this.handleLevel = this.handleLevel.bind(this);
     this.renderQuestions = this.renderQuestions.bind(this);
     this.upScore = this.upScore.bind(this);
+    this.setWithdraw = this.setWithdraw.bind(this)
     
 }
+
+    // Logic
+    setWithdraw() {
+        this.setState({
+            hasStopped : true,
+            submittedScore : this.state.currentScore
+        })  
+    this.forwardStep();
+    }
+
+    // Logic
+
     upScore () {
         const {currentScore, submittedScore} = this.state
         this.setState(prevState => {
@@ -126,6 +140,7 @@ render() {
                     isLoggedIn = {this.props.isLoggedIn}
                     handleLogin = {this.props.handleLogin}
                     logout = {this.props.logout}
+                    
                    />
             break;
             
@@ -136,12 +151,16 @@ render() {
                     step = {step}
                     upScore = {this.upScore}
                     currentScore = {this.state.currentScore}
+                    setWithdraw = {this.setWithdraw}
             />
             
         case 3:
             return <Result 
+                username = "admin"
                 currentScore = {this.state.currentScore}
                 submittedScore = {this.state.submittedScore}
+                hasStopped = {this.hasStopped}
+
             />   
             break;
         
