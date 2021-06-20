@@ -2,6 +2,7 @@ import React from 'react';
 import './result.css'
 import Cookies from 'universal-cookie';
 import { getRealScore } from './SpecialMethods';
+import { getCookie } from './otherSpecialMethods';
 
 
 function Result(props) {
@@ -9,7 +10,7 @@ function Result(props) {
     const cookie = new Cookies(); **/
   // var score = props.hasStopped ? props.currentScore : props.submittedScore;
     var score =  getRealScore(props.submittedScore);
-    var username = "admin";
+    var username = getCookie();
     const addScore  = async() => {
         
         const body = {username, score}

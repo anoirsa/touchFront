@@ -304,10 +304,10 @@ render(){
         </div>
         <div className="lastDiv"> 
             <div className="go">
-                <div>STOP</div>
-                <div
-                    onClick = {() => this.props.setWithdraw()}
-                >CURRENT CODE</div>
+                <div 
+                   onClick = {() => this.props.setWithdraw()}
+                >STOP</div>
+                <div>CURRENT CODE</div>
             </div>
             <div className="help">
                 <div

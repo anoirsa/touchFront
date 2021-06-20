@@ -16,6 +16,9 @@ import Cookies from 'universal-cookie';
 import { data } from './gamerules/GameRulesCss';
 import fetch from 'unfetch'
 import { getdata } from './home/subComponents/client';
+import ViewScores from './GameBoard/steps/subComponents/viewScores';
+import ViewProfile from './GameBoard/steps/subComponents/viewprofile';
+import { getStatusForLogin } from './GameBoard/steps/otherSpecialMethods';
 
 class App extends React.Component {
   constructor(props) {
@@ -49,7 +52,8 @@ class App extends React.Component {
     window.location.href ="http://localhost:8081/logout";
   }
 
-  async get() {
+  
+  /** async get() {
     try {
       const res = await fetch(`management/api/v1/coners`);
       
@@ -61,16 +65,26 @@ class App extends React.Component {
       console.error('err', err);
     }
   
+  } **/
+
+  get() {
+    fetch(`management/api/v1/coners`).then(res => {
+      console.log("Method excuted")
+      
+        this.handleLogin("log")
+    
+     
+    }).catch(err => {
+      this.handleLogin("sasa")
+    })
   }
 
   
-
-  componentDidMount() {
-    this.get();
+  componentWillUnmount() {
+   
   }
-
   render(){
-
+    //getStatusForLogin();
     return(
       <div className="App">
       <Router>
@@ -79,9 +93,9 @@ class App extends React.Component {
       <Switch>
       <Route path="/"  render = {(props) => (
      <Main   {...props} isLoggedIn = {this.state.isLoggedIn} 
-                        handleLogin={this.handleLogin}
+                        get={this.get}
                         handleLogOut={this.handleLogOut}
-                        get = {this.get}/>
+                       />
    )}   exact />
    
    <Route path="/gamerules" component={GameRules} exact />
@@ -90,14 +104,28 @@ class App extends React.Component {
 
    <Route path ="/gameboard" render = {(props) => (
      <Gameboard   {...props} isLoggedIn = {this.state.isLoggedIn} 
-                        handleLogin={this.handleLogin}
+                        get={this.get}
                         logout ={this.logout}
                       />
    )} exact />
-   <Route path ="/errorpage" component ={errorPage} exact />
+   
+   <Route path ="/gameboard/viewscores" render = {(props) => (
+     <ViewScores   {...props} isLoggedIn = {this.state.isLoggedIn} 
+                        get={this.get}
+                        
+                      />
+   )} exact />
+
+  <Route path ="/gameboard/viewprofile" render = {(props) => (
+     <ViewProfile   {...props} isLoggedIn = {this.state.isLoggedIn} 
+                        get={this.get}
+                        
+                      />
+   )} exact />
+
    </Switch>       
-   {this.state.isLoggedIn ? <Redirect to="/gameboard" /> : null} 
-    
+    {this.state.isLoggedIn ? <Redirect to="/gameboard" /> : null}  
+   
     </Router>
     <Footer />  
     </div>

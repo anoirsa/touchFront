@@ -20,6 +20,7 @@ import {Image , Image1,
 import { texts } from './texts';
 // import components
 import Modal from './subComponents/Modal'
+import { getStatusForLogin } from '../GameBoard/steps/otherSpecialMethods';
 
 
 // Cookies are very important objects to make a secure and smooth connection between the server and the client
@@ -83,8 +84,9 @@ const Main = (props) => {
         }
         
     },[])
+    
 
-    //props.get();
+    props.get();
     return (
         <Section>
             <Container>
@@ -193,7 +195,7 @@ const Main = (props) => {
                 </Text>
             </ContainerSecond>
             {props.isLoggedIn ? <Redirect to= "/gameboard" 
-            /> : null} 
+            /> : null}  
   </Section>
     )
 }

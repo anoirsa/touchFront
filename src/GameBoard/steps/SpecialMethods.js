@@ -144,6 +144,27 @@ const getIconCategory = (category) =>{
     }
     
     return returnedValue;
+}
+
+const evaluateScore = (score) => {
+    var returnedValue ;
+    if (score == 0) returnedValue = "BAD" 
+    else if (score > 0 && score <= 1000) returnedValue = "Acceptable"
+    else if (score > 1000 && score <= 8000) returnedValue = "Wonderful"
+    else if (score > 8000 && score <= 32000) returnedValue = "You will be rich"
+    else if (score > 32000 && score <= 250000) returnedValue = "You are rich"
+    else if (score > 250000) returnedValue = "You are king"
+    return returnedValue;
+}
+
+const getDatedFormat = (points) => {
+    var day = "";
+    for (let i = 0 ; i < 10 ; i ++ ) day += points.charAt(i) 
+    day +=" ";
+    for (let i = 11 ; i < 16 ; i ++ ) day += points.charAt(i);
+    return day; 
 } 
 
-export {getTextLevel , shuffle , insertOptions, getRealScore, points, equals, pointStable, removeA , isStable, getIconCategory}
+
+export {getTextLevel , shuffle , insertOptions, getRealScore, 
+    points, equals, pointStable, removeA , isStable, getIconCategory ,evaluateScore, getDatedFormat}

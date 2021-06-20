@@ -2,6 +2,7 @@ import { PresetColorTypes } from 'antd/lib/_util/colors';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import '../gameboard.css';
+import {Link} from 'react-router-dom'
 
 
 
@@ -42,11 +43,18 @@ function BeforeStart(props) {
                 <i className="fas fa-sign-out-alt"></i>
                 <h3>LOG OUT</h3>
                 </div>
-                <div>
+               
+                <div
+                    onClick = {() => window.location.href ="gameboard/viewscores"}
+                >
                 <i className="fas fa-eye"></i>
                 <h3>SCORES</h3>
                 </div>
-                <div>
+                
+                <div
+                    
+                    onClick = {() => window.location.href ="/gameboard/viewprofile"}
+                >
                 <i className="fas fa-id-card"></i>
                 <h3>PROFILE</h3>
 

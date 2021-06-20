@@ -80,6 +80,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    color: white
 
 }
 
@@ -90,7 +91,14 @@
     border-radius: 5%;
     text-align: center;
     padding-top: 2px;
+    cursor: pointer;
 }
 .here div i {
     font-size: 20px;
+}
+.linkp {
+    list-style: none;
+    outline: none;
+    color: white;
+    text-decoration: none;
 }

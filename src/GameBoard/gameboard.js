@@ -8,6 +8,7 @@ import  Result  from './steps/result';
 import GameWithdraw from './steps/GameWithdraw';
 import {equals, getTextLevel, pointStable} from './steps/SpecialMethods'
 import { questionsOfTheGame } from './steps/questionData';
+import { getStatus } from './steps/subComponents/viewScores';
 
 class Gameboard extends React.Component {
 constructor(props){
@@ -46,11 +47,15 @@ constructor(props){
         this.setState(prevState => {
             return {currentScore : prevState.currentScore + 1}
         })
+        console.log("Other validation " + currentScore)
         const newSubmitted = pointStable(submittedScore,currentScore)
        
         this.setState({
             submittedScore : newSubmitted
         })
+        if (currentScore == 16) {
+            this.forwardStep();
+        }
 
     }
     forwardStep() {
@@ -60,9 +65,6 @@ constructor(props){
     console.log(this.state.step)
    }
    
-   removeTwo() {
-
-   }
    async renderQuestions() {
         const {level} = this.state
         if (level != null) {
@@ -127,9 +129,12 @@ constructor(props){
         level : levelEntered
     })
 }
+    
 render() {
-    const {step, level} = this.state
-   
+    
+       getStatus();
+        const {step, level} = this.state
+        this.props.get();
         console.log("Main step is " + step)
         switch(step) {
         case 1 : 
@@ -137,11 +142,11 @@ render() {
                     handleLevel = {this.handleLevel}
                     renderQuestions = {this.renderQuestions}
                     level = {level}
-                    isLoggedIn = {this.props.isLoggedIn}
-                    handleLogin = {this.props.handleLogin}
                     logout = {this.props.logout}
                     
-                   />
+                   /> 
+                  
+                   
             break;
             
         case 2 :
@@ -152,7 +157,9 @@ render() {
                     upScore = {this.upScore}
                     currentScore = {this.state.currentScore}
                     setWithdraw = {this.setWithdraw}
-            />
+            /> 
+           
+            
             
         case 3:
             return <Result 
