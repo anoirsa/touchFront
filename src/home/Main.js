@@ -17,10 +17,10 @@ import {Image , Image1,
      Button , ContainerSecond, Reference ,SectionAbove, SubSection,
      ImageSherlock } from './MainCss'
 // import variables     
-import { texts } from './texts';
+import { texts } from './Texts';
 // import components
 import Modal from './subComponents/Modal'
-import { getStatusForLogin } from '../GameBoard/steps/otherSpecialMethods';
+import { getStatusForLogin } from '../gameBoard/steps/OtherSpecialMethods';
 
 
 // Cookies are very important objects to make a secure and smooth connection between the server and the client
@@ -78,6 +78,7 @@ const Main = (props) => {
             setShouldShowText(yPos > 410 ? true : false);
             setshouldShowReference(yPos > 370 ? true : false);
         }
+        getStatusForLogin();
         window.addEventListener('scroll' , handleScroll, false)
         return () => {
             window.removeEventListener('scroll' , handleScroll, false);
@@ -85,8 +86,7 @@ const Main = (props) => {
         
     },[])
     
-
-    props.get();
+    
     return (
         <Section>
             <Container>
@@ -194,8 +194,8 @@ const Main = (props) => {
                 </motion.p>
                 </Text>
             </ContainerSecond>
-            {props.isLoggedIn ? <Redirect to= "/gameboard" 
-            /> : null}  
+            {/** {props.isLoggedIn ? <Redirect to= "/gameboard" 
+            /> : null}   **/}
   </Section>
     )
 }

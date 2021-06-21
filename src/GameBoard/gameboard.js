@@ -4,11 +4,11 @@ import { getRes } from './client'
 import  {Route , Redirect}from 'react-router-dom';
 import BeforeStart from './steps/BeforeStart';
 import DuringGame from './steps/DuringGame';
-import  Result  from './steps/result';
+import  Result  from './steps/Result';
 import GameWithdraw from './steps/GameWithdraw';
 import {equals, getTextLevel, pointStable} from './steps/SpecialMethods'
-import { questionsOfTheGame } from './steps/questionData';
-import { getStatus } from './steps/subComponents/viewScores';
+//import { questionsOfTheGame } from './steps/questionData';
+import { getStatus } from './steps/subComponents/ViewScores';
 
 class Gameboard extends React.Component {
 constructor(props){
@@ -69,44 +69,26 @@ constructor(props){
         const {level} = this.state
         if (level != null) {
             try {
-                /** 
+                 
                 const questionsOfTheGame = [
-                    {questionText : "Who is best player",
-                    option1 : "Messi",
-                    option2: "Ronaldo",
-                    option3 : "Rahim",
-                    option4 : "Gori",
-                    correctAnswer : "Messi"},
-                
-                    {questionText : "Who is world cup winner 2010",
-                    option1 : "Spain",
-                    option2: "Italy",
-                    option3 : "Germany",
-                    option4 : "Netherlands",
-                    correctAnswer : "Spain"},
+                   
 
-                    {questionText : "How many times did Finalnd qualify to EURO ?",
-                    option1 : "2 times",
-                    option2: "One time",
-                    option3 : "4 times",
-                    option4 : "6 times",
-                    correctAnswer : "One time"}
-
-                ]; **/
+                ]; 
                 // ${getTextLevel(level)}
-               /**const res = await fetch(`http://localhost:8081/management/api/v1/data/${getTextLevel(level)}`);
-                const json = await res.json(); **/
+                const res = await fetch(`http://localhost:8081/management/api/v1/data/${getTextLevel(level)}`);
+                const json = await res.json();
                 
-               /** json.map((item , index) => {
+               json.map((item , index) => {
                     return(
                         questionsOfTheGame.push(item)
                     )
-                }) **/
-                this.forwardStep();
-                console.log("Step next is " + this.state.step)
+                }) 
                 this.setState({
                     questions : questionsOfTheGame
-                })
+                });
+                this.forwardStep();
+                console.log("Step next is " + this.state.step)
+                
                 console.log(this.state.questions)
                 
                
@@ -132,9 +114,9 @@ constructor(props){
     
 render() {
     
-       getStatus();
+        getStatus();
         const {step, level} = this.state
-        this.props.get();
+       // this.props.get();
         console.log("Main step is " + step)
         switch(step) {
         case 1 : 

@@ -6,8 +6,8 @@ import SamUncle from './images/asking.png';
 import './during.css'
 import {getRealScore, insertOptions, points, shuffle, removeA, isStable, getIconCategory} from './SpecialMethods'
 import SelectInput from '@material-ui/core/Select/SelectInput';
-import Percentage from './subComponents/percentage';
-import AskConsultant from './subComponents/askConsultant';
+import Percentage from './subComponents/Percentage';
+import AskConsultant from './subComponents/AskConsultant';
 
 class DuringGame extends React.Component {
     constructor(props) {

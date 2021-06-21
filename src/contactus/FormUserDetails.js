@@ -62,14 +62,10 @@ function FormUserDetails(props) {
         
         style ={{width:"100%",height:"50%"}}
         />
-        <Button
-        whileHover={{scale:1.2}}
-        whileTap={{scale:0.9,backgroundColor:'#adadeb',transition:{duration:0},background:"transparent"}}
-        initial ={{opacity:0}}
-        animate ={{opacity:1, transition:{duration : 1.5}}}
-        >
-            Send
-        </Button>
+        <h3 
+            className ="buttonSu">
+            Sumbit
+        </h3>
         </form> 
         </div>
     )

@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './navbar/nabvar';
+import NavBar from './navbar/Nabvar';
 import  React, { useEffect } from 'react'
-import HomePage from './home/homePage'
+//import HomePage from './home/HomePage'
 // import components
 import Main from './home/Main';
 import Footer from './home/subComponents/Footer'
-import GameRules from './gamerules/GameRules';
+import GameRules from './gamerules/gameRules';
 import {BrowserRouter as Router , Route, Switch , Redirect} from 'react-router-dom'
-import AboutUs from './About Us/AboutUs';
+import AboutUs from './aboutUs/AboutUs';
 import ContactUs from './contactus/ContactUs';
-import Gameboard from './GameBoard/gameboard';
-import errorPage from './GameBoard/errorPage';
+import Gameboard from './gameBoard/gameboard';
+import errorPage from './gameBoard/ErrorPage';
 import Cookies from 'universal-cookie';
-import { data } from './gamerules/GameRulesCss';
+import { data } from './gamerules/gameRulesCss';
 import fetch from 'unfetch'
-import { getdata } from './home/subComponents/client';
-import ViewScores from './GameBoard/steps/subComponents/viewScores';
-import ViewProfile from './GameBoard/steps/subComponents/viewprofile';
-import { getStatusForLogin } from './GameBoard/steps/otherSpecialMethods';
+import { getdata } from './home/subComponents/Client';
+import ViewProfile from './gameBoard/steps/subComponents/Viewprofile';
+import ViewScores from './gameBoard/steps/subComponents/ViewScores';
+
+import { getStatusForLogin } from './gameBoard/steps/OtherSpecialMethods';
+
+// The main method that contains all the main routes 
 
 class App extends React.Component {
   constructor(props) {
@@ -80,9 +83,7 @@ class App extends React.Component {
   }
 
   
-  componentWillUnmount() {
-   
-  }
+  
   render(){
     //getStatusForLogin();
     return(
@@ -93,7 +94,7 @@ class App extends React.Component {
       <Switch>
       <Route path="/"  render = {(props) => (
      <Main   {...props} isLoggedIn = {this.state.isLoggedIn} 
-                        get={this.get}
+                       // get={this.get}
                         handleLogOut={this.handleLogOut}
                        />
    )}   exact />
@@ -104,7 +105,7 @@ class App extends React.Component {
 
    <Route path ="/gameboard" render = {(props) => (
      <Gameboard   {...props} isLoggedIn = {this.state.isLoggedIn} 
-                        get={this.get}
+                       // get={this.get}
                         logout ={this.logout}
                       />
    )} exact />
@@ -124,7 +125,7 @@ class App extends React.Component {
    )} exact />
 
    </Switch>       
-    {this.state.isLoggedIn ? <Redirect to="/gameboard" /> : null}  
+    {/**{this.state.isLoggedIn ? <Redirect to="/gameboard" /> : null}   **/}
    
     </Router>
     <Footer />  

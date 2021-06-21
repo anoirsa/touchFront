@@ -1,9 +1,9 @@
 import React,{useState , useEffect} from 'react';
-import { getCookie, setBoxGrid } from '../otherSpecialMethods';
+import { getCookie, setBoxGrid } from '../OtherSpecialMethods';
 import  { Redirect}from 'react-router-dom';
 
 import './viewprofile.css';
-import { getStatus, setBox } from './viewScores';
+import { getStatus, setBox } from './ViewScores';
 
 
 export default function ViewProfile(props) {
@@ -15,20 +15,20 @@ export default function ViewProfile(props) {
           const getJson = await getUsername.json();
           setUserData(getJson);  
         } catch (error) {
-          console.log("Operation did not complete");
+       //   console.log("Operation did not complete");
         }
     }
 
     useEffect(() => {
         getProfileData();
-        getStatus();
+        
     },[])
 
     var data = [{columnOne : "Username", columnTwo : userData.username } , 
                  {columnOne : "Password",columnTwo : "********"},
                  {columnOne : "Email",columnTwo : userData.email}]
     
-           
+   getStatus();     
     return (
         <div className="viewProfileMainDiv">
             <div className="profileIcon"> 

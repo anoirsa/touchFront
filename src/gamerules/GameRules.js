@@ -7,7 +7,7 @@ import Bird from './images/bird.png'
 import MangaBoy from './images/mangaboy.png'
 // Import components
 import {Section, Container, Image,
-    QuoteText, CharacterImage, QuoteBox, SecondContainer, data} from './GameRulesCss'
+    QuoteText, CharacterImage, QuoteBox, SecondContainer, data} from './gameRulesCss'
 
 
 

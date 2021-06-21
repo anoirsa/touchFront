@@ -7,7 +7,7 @@ import  { Redirect}from 'react-router-dom';
 import {Link} from 'react-router-dom'
 import  {evaluateScore, getDatedFormat}from '../SpecialMethods.js'
 import './viewscore.css'
-import { getCookie, getGobal } from '../otherSpecialMethods.js';
+import { getCookie, getGobal } from '../OtherSpecialMethods.js';
 
 
 
@@ -33,14 +33,9 @@ function ViewScores(props) {
     // To be modified
     const username = getCookie();
     const [scores , setScores] = useState([])
-    
-    
     const goBack = () => {
         window.location.href = "/gameboard";
     }
-
-    
-    
     var starsTop = [];
     var delayValueTop = 0.6;
     for (let i = 0 ; i <5 ; i++) {
@@ -77,13 +72,13 @@ function ViewScores(props) {
        
     }
     
-
-       useEffect(() => {
+    useEffect(() => {
         getScores();
         getStatus();
         
     },[])
     //props.get();
+    //getStatus();
     return (
         <div className="viewScoreClass">
             <div className="topStarSection">
@@ -103,7 +98,7 @@ function ViewScores(props) {
                 transition ={{duration : 2, delay : delayValue + 2}}
             >
                 <div className="userD" >
-               <i className="fas fa-user-tie"></i> <h1>Admin</h1>
+       <i className="fas fa-user-tie"></i> <h1>{getCookie()}</h1>
             </div>
             <div className="tableClass">
                 <div className="rowClass"> 

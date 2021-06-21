@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import { MenuItems } from './itemMenus';
+import { MenuItems } from './ItemMenus';
 import './navbar.css';
 import './button.css';
 import { Link } from 'react-router-dom';

@@ -39,5 +39,11 @@ const getGobal = async() => {
   
   }  
 
+  const happyOrSad = (score) => {
+    if (score == 0) return "fas fa-frown"
+    else return "fas fa-smile-beam";
 
-export {setBoxGrid , getCookie , getGobal,getStatusForLogin}
+}
+
+
+export {setBoxGrid , getCookie , getGobal,getStatusForLogin , happyOrSad}

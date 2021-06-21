@@ -84,11 +84,11 @@ font-size: 1.5rem;
 
 // Array
 const data = [
-    {number : "I" , text :"Sign in and choose a name", direction :"left"},
-    {number : "II" , text :"Answer the questions and get points", direction: "right"},
+    {number : "I" , text :"Sign in after registration", direction :"left"},
+    {number : "II" , text :"Answer the questions and get money", direction: "right"},
     {number : "III" ,text : "You have three tools of help" ,direction:"left"},
     {number : "IV" ,text : "You can stop at anytime" ,direction:"right"},
-    {number : "V" ,text : "Cheating is forbidden" ,direction:"left"},
+    {number : "V" ,text : "1000 $, 32000 $ are two stop points" ,direction:"left"},
     {number : "VI" ,text : "Earn the money based on points" ,direction:"right"},
 ]
 

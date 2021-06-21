@@ -11,7 +11,7 @@ import PasswordField from 'material-ui-password-field'
 import Alert from '@material-ui/lab/Alert';
 // import images
 import WelcomeAnime from './subImages/welcomeAnime.png'
-import { sendLoginRequest } from './client';
+import { sendLoginRequest } from './Client';
 import Cookies from 'universal-cookie';
 import { makeStyles } from '@material-ui/core/styles';
 import RegistrationModal from './RegistrationModal';
